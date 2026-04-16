@@ -5,36 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Wireframe</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { display: flex; flex-direction: column; align-items: center; }
-        h1 { color: #333; }
-        .screen { border: 1px solid #ccc; padding: 20px; margin: 10px; width: 300px; }
-        .button { background-color: #007BFF; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background-color: #333; color: white; padding: 10px; text-align: center; }
+        nav { margin: 20px 0; }
+        nav a { margin: 0 15px; text-decoration: none; color: #333; }
+        .container { padding: 20px; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Interactive Wireframe</h1>
-        <div class="screen">
+        <nav>
+            <a href="#" id="landingPageTab">Landing Page</a>
+            <a href="#" id="screenwriterTab">Screenwriter Dashboard</a>
+            <a href="#" id="producerTab">Producer Dashboard</a>
+            <a href="#" id="projectDetailsTab">Project Details</a>
+            <a href="#" id="messagingTab">Messaging Interface</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="landingPage" class="page">
             <h2>Landing Page</h2>
-            <button class="button">Get Started</button>
+            <p>Welcome to the interactive wireframe of Magika Studios!</p>
         </div>
-        <div class="screen">
+        <div id="screenwriterDashboard" class="page hidden">
             <h2>Screenwriter Dashboard</h2>
-            <button class="button">View Scripts</button>
+            <p>Overview of your projects, submissions, and messages.</p>
         </div>
-        <div class="screen">
+        <div id="producerDashboard" class="page hidden">
             <h2>Producer Dashboard</h2>
-            <button class="button">View Projects</button>
+            <p>Manage projects and view screenwriter submissions.</p>
         </div>
-        <div class="screen">
+        <div id="projectDetails" class="page hidden">
             <h2>Project Details</h2>
-            <button class="button">Edit Project</button>
+            <p>View specific details about a selected project.</p>
         </div>
-        <div class="screen">
+        <div id="messagingInterface" class="page hidden">
             <h2>Messaging Interface</h2>
-            <button class="button">Send Message</button>
+            <p>Chat with your team and discuss projects.</p>
         </div>
     </div>
+    <script>
+        document.querySelectorAll('nav a').forEach(tab => {
+            tab.addEventListener('click', function(event) {
+                event.preventDefault();
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.add('hidden');
+                });
+                const selectedTab = this.id.replace('Tab', '');
+                document.getElementById(selectedTab).classList.remove('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
