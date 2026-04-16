@@ -1,0 +1,17 @@
+# Node.js
+/node_modules/
+/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+
+# IDE patterns
+*.swp
+*.sublime-workspace
+*.sublime-project
+.vscode/
+.idea/
