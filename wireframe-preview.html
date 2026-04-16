@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe Preview</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        nav { background-color: #333; color: #fff; padding: 10px; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .container { display: none; padding: 20px; }
+        .active { display: block; }
+        #landing { display: block; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" onclick="showPage('landing')">Landing Page</a>
+        <a href="#" onclick="showPage('screenwriter')">Screenwriter Dashboard</a>
+        <a href="#" onclick="showPage('producer')">Producer Dashboard</a>
+        <a href="#" onclick="showPage('project')">Project Details</a>
+        <a href="#" onclick="showPage('messaging')">Messaging Interface</a>
+    </nav>
+    <div id="landing" class="container active">
+        <h1>Landing Page</h1>
+        <p>Welcome to the Magika Studios platform!</p>
+    </div>
+    <div id="screenwriter" class="container">
+        <h1>Screenwriter Dashboard</h1>
+        <p>Manage your scripts and projects here.</p>
+    </div>
+    <div id="producer" class="container">
+        <h1>Producer Dashboard</h1>
+        <p>Overview of all active projects and submissions.</p>
+    </div>
+    <div id="project" class="container">
+        <h1>Project Details</h1>
+        <p>Detailed view of current projects and submissions.</p>
+    </div>
+    <div id="messaging" class="container">
+        <h1>Messaging Interface</h1>
+        <p>Chat with team members and share updates.</p>
+    </div>
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.container');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
